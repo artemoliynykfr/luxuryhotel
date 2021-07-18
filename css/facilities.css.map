@@ -1,9 +1,0 @@
-{
-    "version": 3,
-    "mappings": "AAAA,AAAA,YAAY,CAAA;EACX,gBAAgB,EAAE,iCAAiC;CACnD",
-    "sources": [
-        "facilities.scss"
-    ],
-    "names": [],
-    "file": "facilities.css"
-}
