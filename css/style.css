@@ -57,6 +57,10 @@ article > * + * {
   margin-top: 1em;
 }
 
+:focus-visible {
+  outline: none;
+}
+
 input,
 button,
 textarea,
@@ -852,6 +856,8 @@ select {
   transition: -webkit-transform 400ms ease 0s;
   transition: transform 400ms ease 0s;
   transition: transform 400ms ease 0s, -webkit-transform 400ms ease 0s;
+  position: relative;
+  left: 10px;
 }
 
 .review .review__button .swiper-prev:hover,
@@ -929,6 +935,15 @@ select {
   position: relative;
   margin-bottom: 100px;
   cursor: pointer;
+  -webkit-transition: -webkit-transform 400ms ease 0s;
+  transition: -webkit-transform 400ms ease 0s;
+  transition: transform 400ms ease 0s;
+  transition: transform 400ms ease 0s, -webkit-transform 400ms ease 0s;
+}
+
+.facilities__item:hover {
+  -webkit-transform: scale(1.05);
+          transform: scale(1.05);
 }
 
 @media (max-width: 767px) {
@@ -1403,12 +1418,19 @@ select {
   color: #14274A;
   text-decoration: none;
   margin-left: 8px;
+  -webkit-transition: 400ms ease 0s;
+  transition: 400ms ease 0s;
 }
 
 @media (max-width: 400px) {
   .contact__body .text .item a {
     font-size: calc(16px + (20 - 16) * ((100vw - 300px) / (400 - 300)));
   }
+}
+
+.contact__body .text .item a:hover {
+  text-decoration: underline;
+  text-shadow: 0px 0px 1px #14274A;
 }
 
 .contact__body .text a.item {
@@ -1420,6 +1442,8 @@ select {
   color: #14274A;
   text-decoration: none;
   margin: 20px 0px;
+  -webkit-transition: 400ms ease 0s;
+  transition: 400ms ease 0s;
 }
 
 @media (max-width: 400px) {
@@ -1431,12 +1455,25 @@ select {
 .contact__body .text a.item img {
   width: 30px;
   margin-left: 10px;
+  -webkit-transition: -webkit-transform 400ms ease 0s;
+  transition: -webkit-transform 400ms ease 0s;
+  transition: transform 400ms ease 0s;
+  transition: transform 400ms ease 0s, -webkit-transform 400ms ease 0s;
 }
 
 @media (max-width: 400px) {
   .contact__body .text a.item img {
     display: none;
   }
+}
+
+.contact__body .text a.item:hover {
+  text-shadow: 0px 0px 1px #14274A;
+}
+
+.contact__body .text a.item:hover img {
+  -webkit-transform: translate(5px, 0px);
+          transform: translate(5px, 0px);
 }
 
 .contact__body form {
@@ -1480,6 +1517,8 @@ select {
           align-items: center;
   padding: 0px 10px;
   margin-bottom: 20px;
+  -webkit-transition: 400ms ease 0s;
+  transition: 400ms ease 0s;
 }
 
 @media (max-width: 400px) {
@@ -1487,6 +1526,13 @@ select {
     width: 90%;
     margin: 20px auto;
   }
+}
+
+.contact__body form input:focus-visible,
+.contact__body form textarea:focus-visible {
+  outline: none;
+  -webkit-box-shadow: 0px 0px 5px #14274A;
+          box-shadow: 0px 0px 5px #14274A;
 }
 
 .contact__body form textarea {
@@ -1498,6 +1544,8 @@ select {
   border: 1px solid rgba(20, 39, 74, 0.5);
   padding: 0px 10px;
   margin-bottom: 40px;
+  -webkit-transition: 400ms ease 0s;
+  transition: 400ms ease 0s;
 }
 
 @media (max-width: 400px) {

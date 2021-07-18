@@ -54,7 +54,9 @@ img {
 article>*+* {
 	margin-top: 1em;
 }
-
+:focus-visible{
+	outline: none;
+}
 input,
 button,
 textarea,
@@ -636,6 +638,8 @@ select {
 			margin: 0px 10px 0px 0px;
 			cursor: pointer;
 			transition: transform 400ms ease 0s;
+			position: relative;
+			left: 10px;
 			&:hover{
 				transform: scale(.95);
 			}
@@ -694,6 +698,10 @@ select {
 		position: relative;
 		margin-bottom: 100px;
 		cursor: pointer;
+		transition: transform 400ms ease 0s;
+		&:hover{
+			transform: scale(1.05);
+		}
 		@media (max-width: 767px){
 			height: 550px;
 		}
@@ -1002,8 +1010,13 @@ select {
 					color: #14274A;
 					text-decoration: none;
 					margin-left: 8px;
+					transition: 400ms ease 0s;
 					@media (max-width: 400px){
 						font-size: calc(16px + (20 - 16) * ((100vw - 300px) / (400 - 300)));
+					}
+					&:hover{
+						text-decoration: underline;
+						text-shadow: 0px 0px 1px #14274A;
 					}
 				}
 				
@@ -1017,14 +1030,23 @@ select {
 				color: #14274A;
 				text-decoration: none;
 				margin: 20px 0px;
+				transition: 400ms ease 0s;
+				
 				@media (max-width: 400px){
 					font-size: calc(16px + (20 - 16) * ((100vw - 300px) / (400 - 300)));
 				}
 				img{
 					width: 30px;
 					margin-left: 10px;
+					transition: transform 400ms ease 0s;
 					@media (max-width: 400px){
 						display: none;
+					}
+				}
+				&:hover{
+					text-shadow: 0px 0px 1px #14274A;
+					img{
+						transform: translate(5px, 0px);
 					}
 				}
 			}
@@ -1056,10 +1078,17 @@ select {
 				align-items: center;
 				padding: 0px 10px;
 				margin-bottom: 20px;
+				transition: 400ms ease 0s;
 				@media (max-width: 400px){
 					width: 90%;
 					margin: 20px auto;
 				}
+				
+			}
+			input:focus-visible,
+			textarea:focus-visible{
+				outline: none;
+				box-shadow: 0px 0px 5px #14274A;
 			}
 			textarea{
 				max-width: 300px;
@@ -1070,6 +1099,7 @@ select {
 				border: 1px solid rgba(20, 39, 74, 0.5);
 				padding: 0px 10px;
 				margin-bottom: 40px;
+				transition: 400ms ease 0s;
 				@media (max-width: 400px){
 					width: 90%;
 					margin: 20px auto;
