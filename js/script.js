@@ -54,9 +54,9 @@ new Swiper(".swiper-container1", {
 	initialSlide: 0,
 	speed: 1500,
 	slidesPerView: 1,
-	spaceBetween: 0,
+	spaceBetween: 20,
 	autoplay: {
-		delay: 3000,
+		delay: 7000,
 		disableOnInteraction: true,
 	},
 	keyboard: {
@@ -68,77 +68,23 @@ new Swiper(".swiper-container1", {
 		clickable: true,
 	},
 })
-// form validation
-let reg = /[A-Za-zA]/;
-let email = /(?:[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*|"(?:[\x01-\x08\x0b\x0c\x0e-\x1f\x21\x23-\x5b\x5d-\x7f]|\\[\x01-\x09\x0b\x0c\x0e-\x7f])*")@(?:(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?|\[(?:(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.){3}(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?|[a-z0-9-]*[a-z0-9]:(?:[\x01-\x08\x0b\x0c\x0e-\x1f\x21-\x5a\x53-\x7f]|\\[\x01-\x09\x0b\x0c\x0e-\x7f])+)\])/;
-let inpname = document.querySelector('#input__name');
-let inpemail = document.querySelector('#input__email');
-let span = document.querySelector('#span')
-document.querySelector('#validate__button').onclick = function(e){
-	e.preventDefault();
-	if (!validate(reg, inpname.value || email, inpemail.value)) {
-		notValid(inpname, inpemail)
-	} else {
-		valid(inpname, inpemail)
-	}
-}
-function validate(regex, inpname, inpemail){
-	return regex.test(inpname, inpemail);
-}
-function notValid(inpname, inpemail){
-	inpname.classList.add('is-invalid') || inpemail.classList.remove('is-invalid')
-}
-function valid(inpname, inpemail){
-	inpname.classList.remove('is-invalid') || inpemail.classList.remove('is-invalid')
-	inpname.classList.add('is-valid') || inpemail.classList.add('is-valid')
-}
 // accordion
-let accordion = (function (element) {
-	let _getItem = function (elements, className) {
-		let element = undefined;
-		elements.forEach(function (item) {
-		if (item.classList.contains(className)) {
-			element = item;
-		}
-	});
-	return element;
-};
-return function () {
-	let _mainElement = {},
-		 _items = {}, 
-		 _contents = {};
-	let _actionClick = function (e) {
-		if (!e.target.classList.contains('accordion__header')) { 
-			return;
-		}
-		e.preventDefault();
-		let header = e.target,
-			 item = header.parentElement,
-			 itemActive = _getItem(_items, 'show');
-		if (itemActive === undefined) {
-			item.classList.add('show');
-		} else {
-			itemActive.classList.remove('show');
-			if (itemActive !== item) {
-				item.classList.add('show');
+function accordion(){
+	const items = document.querySelectorAll('.accordion__header')
+	items.forEach(item => {
+		item.addEventListener("click", () => {
+			const parent = item.parentNode
+			if (parent.classList.contains('show')){
+				parent.classList.remove('show')
+			} else {
+				document
+					.querySelectorAll('.accordion__item')
+					.forEach(child => child.classList.remove('show'))
+				parent.classList.add('show')
 			}
-		}
-	},
-	_setupListeners = function () {
-		_mainElement.addEventListener('click', _actionClick);
-	};
-	return {
-		init: function (element) {
-			_mainElement = (typeof element === 'string' ? document.querySelector(element) : element);
-			_items = _mainElement.querySelectorAll('.accordion__item');
-			_setupListeners();
-		}
-	}
+		})
+	})
 }
-})();
-let accordion1 = accordion();
-accordion1.init('#accordion');
-let accordion2 = accordion();
-accordion2.init('#accordion2');
-let accordion3 = accordion();
-accordion3.init('#accordion3');
+accordion()
+//scroll to
+new SmoothScroll('a[href*="#"]')
