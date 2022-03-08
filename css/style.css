@@ -1952,6 +1952,10 @@ section, div{
 }
 
 @media (max-width: 450px) {
+  .footer__body .footer__social .item {
+    max-width: 118px;
+  }
+
   .footer__body .footer__social .item p {
     margin-left: 15px;
   }
