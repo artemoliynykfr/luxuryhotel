@@ -1732,11 +1732,11 @@ section, div{
   }
 
   .footer__body .footer__social {
-    margin: 0px auto;
+    margin: 0px auto 20px;
   }
 
   .footer__body .footer__form {
-    margin: 0px auto;
+    margin: 0px auto 20px;
     text-align: center;
   }
 
@@ -1820,10 +1820,6 @@ section, div{
 
   .review .swiper h4 {
     font-size: calc(20px + 10 * (100vw - 300px) / 468);
-  }
-
-  .footer__body .footer__item {
-    margin: 0 auto;
   }
 
   .facilities__item {
@@ -1943,6 +1939,10 @@ section, div{
 @media (max-width: 450px) {
   .footer__body .footer__social .item p {
     margin-left: 15px;
+  }
+
+  .footer__body .footer__social .item img {
+    width: auto;
   }
 
   .room__item .room__body .description {
