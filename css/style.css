@@ -225,11 +225,11 @@
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  gap: 10px;
   margin: 0px auto 30px;
 }
 
 .start__body .start__button .button svg {
+  margin-top: 10px;
   width: 28px;
   height: 23px;
   z-index: 99;
@@ -297,11 +297,13 @@
 }
 
 .firstscreen.facilite {
-  background-image: url(..//img/facilities/header_bg.webp);
+  background: url(..//img/facilities/header_bg.webp) center no-repeat;
+  background-size: cover;
 }
 
 .firstscreen.rooms {
-  background-image: url(..//img/rooms/header_bg.webp);
+  background: url(..//img/rooms/header_bg.webp) center no-repeat;
+  background-size: cover;
 }
 
 .firstscreen.contacts {
@@ -502,7 +504,6 @@
           justify-content: space-between;
   max-width: 100%;
   width: 100%;
-  gap: 40px;
 }
 
 .footer__body .footer__item {
@@ -682,6 +683,11 @@
   color: #FFFFFF;
 }
 
+.footer__body .footer__form form input::-moz-placeholder {
+  color: #FFFFFF;
+  opacity: 1;
+}
+
 .footer__body .footer__form form button {
   background: #E0B973;
   border: none;
@@ -703,7 +709,7 @@
   width: 100%;
   height: 800px;
   background: url(..//img/facilities/gym.webp) center no-repeat;
-  background-size: cover;
+  background-size: 100% !important;
   position: relative;
   margin-bottom: 150px;
   cursor: pointer;
@@ -711,17 +717,13 @@
      -moz-user-select: none;
       -ms-user-select: none;
           user-select: none;
-  -webkit-transition: -webkit-transform 400ms ease 0s;
-  transition: -webkit-transform 400ms ease 0s;
-  -o-transition: transform 400ms ease 0s;
-  transition: transform 400ms ease 0s;
-  transition: transform 400ms ease 0s, -webkit-transform 400ms ease 0s;
+  -webkit-transition: all 400ms ease 0s;
+  -o-transition: all 400ms ease 0s;
+  transition: all 400ms ease 0s;
 }
 
 .facilities__item:hover {
-  -webkit-transform: scale(1.04);
-      -ms-transform: scale(1.04);
-          transform: scale(1.04);
+  background-size: 105% !important;
 }
 
 .facilities__item:nth-child(3) {
@@ -1155,15 +1157,6 @@
   padding: 0;
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
-}
-
-::-webkit-scrollbar {
-  width: 8px;
-}
-
-::-webkit-scrollbar-thumb {
-  background-color: #14274A;
-  border-radius: 5px;
 }
 
 :focus-visible {
@@ -1654,12 +1647,6 @@ section, div{
             transform: translate(0, 0);
   }
 
-  .facilities__item:hover {
-    -webkit-transform: scale(1);
-        -ms-transform: scale(1);
-            transform: scale(1);
-  }
-
   .contact__text p {
     text-align: center !important;
   }
@@ -1710,12 +1697,26 @@ section, div{
 }
 
 @media (max-width: 1024px) {
+  .footer__body {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+  }
+
   .footer__body .footer__item {
     text-align: center;
+    margin-bottom: 20px;
   }
 
   .footer__body .footer__item .footer__logo {
-    margin: 0px auto;
+    margin: 0 auto;
   }
 
   .footer__body .footer__item .footer__logo {
@@ -1723,7 +1724,7 @@ section, div{
   }
 
   .footer__body .footer__menu {
-    margin: 0px auto;
+    margin: 0px auto 20px;
   }
 
   .footer__body .footer__menu li {
@@ -1821,14 +1822,6 @@ section, div{
     font-size: calc(20px + 10 * (100vw - 300px) / 468);
   }
 
-  .footer__body {
-    -webkit-box-orient: vertical;
-    -webkit-box-direction: normal;
-        -ms-flex-direction: column;
-            flex-direction: column;
-    gap: 20px;
-  }
-
   .footer__body .footer__item {
     margin: 0 auto;
   }
@@ -1850,10 +1843,6 @@ section, div{
     height: 400px;
   }
 
-  .room__item .swiper-pagination-bullet {
-    display: none;
-  }
-
   .room__item .room__body .text {
     height: 90px;
   }
@@ -1871,10 +1860,13 @@ section, div{
     -webkit-box-direction: normal;
         -ms-flex-direction: column;
             flex-direction: column;
-    gap: 30px;
     -webkit-box-pack: center;
         -ms-flex-pack: center;
             justify-content: center;
+  }
+
+  .room__item .room__body .description__body .accordion {
+    margin-bottom: 30px;
   }
 
   .room__item .room__body .description__body .accordion__header {
@@ -1948,13 +1940,11 @@ section, div{
   }
 }
 
-@media (max-width: 450px), (max-width: 450px) and (max-height: 900px) {
-  .facilities__item {
-    height: 450px !important;
-  }
-}
-
 @media (max-width: 450px) {
+  .footer__body .footer__social .item p {
+    margin-left: 15px;
+  }
+
   .room__item .room__body .description {
     padding: 20px 10px;
   }
@@ -1983,6 +1973,12 @@ section, div{
   .contact__body .text a.item img {
     width: 40px;
     margin-left: 20px;
+  }
+}
+
+@media (max-width: 450px), (max-width: 450px) and (max-height: 900px) {
+  .facilities__item {
+    height: 450px !important;
   }
 }
 
