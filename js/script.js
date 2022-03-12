@@ -27,64 +27,71 @@ function burger(){
 }
 burger();
 // review
-new Swiper(".swiper-container", {
-	direction: "horizontal",
-	loop: !0,
-	initialSlide: 0,
-	speed: 1500,
-	slidesPerView: 1,
-	spaceBetween: 100,
-	autoplay: {
-		delay: 5000,
-		disableOnInteraction: true,
-	},
-	keyboard: {
-		enabled: !0,
-		onlyInViewport: !1
-	},
-	navigation: {
-		nextEl: ".swiper-next",
-		prevEl: ".swiper-prev"
-	}
-})
-// room swiper
-new Swiper(".swiper-container1", {
-	direction: "horizontal",
-	loop: !0,
-	initialSlide: 0,
-	speed: 1500,
-	slidesPerView: 1,
-	spaceBetween: 20,
-	autoplay: {
-		delay: 7000,
-		disableOnInteraction: true,
-	},
-	keyboard: {
-		enabled: !0,
-		onlyInViewport: !1
-	},
-	pagination: {
-		el: ".swiper-pagination",
-		clickable: true,
-	},
-})
-// accordion
-function accordion(){
-	const items = document.querySelectorAll('.accordion__header')
-	items.forEach(item => {
-		item.addEventListener("click", () => {
-			const parent = item.parentNode
-			if (parent.classList.contains('show')){
-				parent.classList.remove('show')
-			} else {
-				document
-					.querySelectorAll('.accordion__item')
-					.forEach(child => child.classList.remove('show'))
-				parent.classList.add('show')
-			}
-		})
+if (document.querySelector('.body__swiper')){
+	new Swiper(".swiper-container", {
+		direction: "horizontal",
+		loop: !0,
+		initialSlide: 0,
+		speed: 1500,
+		slidesPerView: 1,
+		spaceBetween: 100,
+		autoplay: {
+			delay: 5000,
+			disableOnInteraction: true,
+		},
+		keyboard: {
+			enabled: !0,
+			onlyInViewport: !1
+		},
+		navigation: {
+			nextEl: ".swiper-next",
+			prevEl: ".swiper-prev"
+		}
 	})
 }
-accordion()
+if (document.querySelector('.body__room')){
+	// room swiper
+	new Swiper(".swiper-container1", {
+		direction: "horizontal",
+		loop: !0,
+		initialSlide: 0,
+		speed: 1500,
+		slidesPerView: 1,
+		spaceBetween: 20,
+		autoplay: {
+			delay: 7000,
+			disableOnInteraction: true,
+		},
+		keyboard: {
+			enabled: !0,
+			onlyInViewport: !1
+		},
+		pagination: {
+			el: ".swiper-pagination",
+			clickable: true,
+		},
+	})
+	// accordion
+	function accordion(){
+		const items = document.querySelectorAll('.accordion__header')
+		items.forEach(item => {
+			item.addEventListener("click", () => {
+				const parent = item.parentNode
+				if (parent.classList.contains('show')){
+					parent.classList.remove('show')
+				} else {
+					document
+						.querySelectorAll('.accordion__item')
+						.forEach(child => child.classList.remove('show'))
+					parent.classList.add('show')
+				}
+			})
+		})
+	}
+	accordion()
+}
+
 //scroll to
-new SmoothScroll('a[href*="#"]')
+if (document.querySelector('.body__scroll')){
+	new SmoothScroll('a[href*="#"]')
+}
