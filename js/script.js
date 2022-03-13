@@ -95,3 +95,65 @@ if (document.querySelector('.body__room')){
 if (document.querySelector('.body__scroll')){
 	new SmoothScroll('a[href*="#"]')
 }
+// animation
+const tl = new TimelineMax()
+const mySplitText = new SplitText('.start__text > h1, .start__text > h2, .start__text > h3, .start__text > p, .start__contact > h1', {type: 'chars'})
+const chars = mySplitText.chars
+tl.from('.header', .7, {y: '-100%'})
+tl.staggerFrom(chars, .4, {opacity: 0}, .1)
+
+
+
+gsap.registerPlugin(ScrollTrigger);
+gsap.utils.toArray('.content-left').forEach((el, index) => { 
+  let tl = gsap.timeline({
+    scrollTrigger: {
+      trigger: el,
+      start: "top bottom",
+      toggleActions: "play none none reverse",
+    }
+  })
+  
+  tl
+  .set(el, {transformOrigin: 'center center'})
+  .fromTo(el, {x: '-20%'}, {x: "0%", duration: .8, immediateRender: false})
+})
+gsap.utils.toArray('.content-bottom').forEach((el, index) => { 
+	let tl = gsap.timeline({
+		scrollTrigger: {
+			trigger: el,
+			start: "top bottom",
+			toggleActions: "play none none reverse",
+		}
+	})
+	
+	tl
+	.set(el, {transformOrigin: 'center center'})
+	.fromTo(el, {y: '50%'}, {y: "0%", duration: .8, immediateRender: false})
+ })
+gsap.utils.toArray('.content-right').forEach((el, index) => { 
+  let tl = gsap.timeline({
+    scrollTrigger: {
+      trigger: el,
+      start: "top bottom",
+      toggleActions: "play none none reverse",
+    }
+  })
+  
+  tl
+  .set(el, {transformOrigin: 'center center'})
+  .fromTo(el, {x: '20%'}, {x: "0%", duration: .8, immediateRender: false})
+})
+gsap.utils.toArray('.content-opacity').forEach((el, index) => { 
+	let tl = gsap.timeline({
+	  scrollTrigger: {
+		 trigger: el,
+		 start: "top bottom",
+		 toggleActions: "play none none reverse",
+	  }
+	})
+	
+	tl
+	.set(el, {transformOrigin: 'center center'})
+	.fromTo(el, {opacity: 0}, {opacity: 1, duration: .8, immediateRender: false})
+ })

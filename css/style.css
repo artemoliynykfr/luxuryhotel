@@ -229,7 +229,7 @@
 }
 
 .start__body .start__button .button svg {
-  margin-top: 10px;
+  margin-right: 10px;
   width: 28px;
   height: 23px;
   z-index: 99;
@@ -968,10 +968,10 @@
 
 .contact__text {
   margin-bottom: 164px;
+  text-align: center;
 }
 
 .contact__text p {
-  text-align: left !important;
   font-size: 30px;
 }
 
@@ -1070,14 +1070,6 @@
 .contact__body form .form__input:focus-visible {
   -webkit-box-shadow: 0px 0px 10px #14274A;
           box-shadow: 0px 0px 10px #14274A;
-}
-
-.contact__body form .form__input.is-invalid {
-  border: 2px solid rgba(74, 20, 20, 0.5);
-}
-
-.contact__body form .form__input.is-valid {
-  border: 2px solid rgba(20, 74, 22, 0.5);
 }
 
 .contact__body form textarea {
@@ -1185,20 +1177,19 @@ body {
 
 body .overlay {
   width: 100%;
-  overflow: hidden;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
+  display: -webkit-box !important;
+  display: -ms-flexbox !important;
+  display: flex !important;
+  -webkit-box-orient: vertical !important;
+  -webkit-box-direction: normal !important;
+      -ms-flex-direction: column !important;
+          flex-direction: column !important;
 }
 
 .main {
-  -webkit-box-flex: 1;
-      -ms-flex: 1 1 auto;
-          flex: 1 1 auto;
+  -webkit-box-flex: 1 !important;
+      -ms-flex: 1 1 auto !important;
+          flex: 1 1 auto !important;
 }
 
 .container {
@@ -1417,21 +1408,11 @@ section, div{
     left: -70px !important;
   }
 
-  .contact__text {
-    text-align: left;
-  }
-
-  .contact__text p {
-    text-align: left !important;
-  }
-
   .contact__body {
-    display: -webkit-box !important;
-    display: -ms-flexbox !important;
-    display: flex !important;
-    -webkit-box-pack: justify;
-        -ms-flex-pack: justify;
-            justify-content: space-between;
+    -webkit-box-orient: horizontal !important;
+    -webkit-box-direction: normal !important;
+        -ms-flex-direction: row !important;
+            flex-direction: row !important;
   }
 
   .contact__body .text p:first-child {
@@ -1660,10 +1641,6 @@ section, div{
     -webkit-transform: translate(0, 0);
         -ms-transform: translate(0, 0);
             transform: translate(0, 0);
-  }
-
-  .contact__text p {
-    text-align: center !important;
   }
 
   .contact__body .text .item a:hover {
@@ -2084,12 +2061,11 @@ section, div{
 }
 
 @media (min-width: 1024px), (max-width: 1110px) {
-  .contact__text {
-    text-align: center;
-  }
-
   .contact__body {
-    display: block;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
   }
 
   .contact__body .text p:first-child {
