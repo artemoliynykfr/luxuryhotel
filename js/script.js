@@ -26,8 +26,9 @@ function burger(){
 	})
 }
 burger();
-// review
+// body__swiper
 if (document.querySelector('.body__swiper')){
+	// review
 	new Swiper(".swiper-container", {
 		direction: "horizontal",
 		loop: !0,
@@ -49,6 +50,7 @@ if (document.querySelector('.body__swiper')){
 		}
 	})
 }
+// body__room
 if (document.querySelector('.body__room')){
 	// room swiper
 	new Swiper(".swiper-container1", {
@@ -90,20 +92,19 @@ if (document.querySelector('.body__room')){
 	}
 	accordion()
 }
-
-//scroll to
+// body__scroll
 if (document.querySelector('.body__scroll')){
+	//scroll to
 	new SmoothScroll('a[href*="#"]')
 }
-// animation
+// animation on start
 const tl = new TimelineMax()
 const mySplitText = new SplitText('.start__text > h1, .start__text > h2, .start__text > h3, .start__text > p, .start__contact > h1', {type: 'chars'})
 const chars = mySplitText.chars
 tl.from('.header', .7, {y: '-100%'})
-tl.staggerFrom(chars, .4, {opacity: 0}, .1)
-
-
-
+tl.staggerFrom(chars, .4, {opacity: 0}, .1, ">-0.6")
+tl.from('.start__button', .7, {y: '150%'}, "-=8.4")
+// animation on scroll
 gsap.registerPlugin(ScrollTrigger);
 gsap.utils.toArray('.content-left').forEach((el, index) => { 
   let tl = gsap.timeline({
@@ -113,7 +114,6 @@ gsap.utils.toArray('.content-left').forEach((el, index) => {
       toggleActions: "play none none reverse",
     }
   })
-  
   tl
   .set(el, {transformOrigin: 'center center'})
   .fromTo(el, {x: '-20%'}, {x: "0%", duration: .8, immediateRender: false})
@@ -126,7 +126,6 @@ gsap.utils.toArray('.content-bottom').forEach((el, index) => {
 			toggleActions: "play none none reverse",
 		}
 	})
-	
 	tl
 	.set(el, {transformOrigin: 'center center'})
 	.fromTo(el, {y: '50%'}, {y: "0%", duration: .8, immediateRender: false})
@@ -139,7 +138,6 @@ gsap.utils.toArray('.content-right').forEach((el, index) => {
       toggleActions: "play none none reverse",
     }
   })
-  
   tl
   .set(el, {transformOrigin: 'center center'})
   .fromTo(el, {x: '20%'}, {x: "0%", duration: .8, immediateRender: false})
@@ -152,8 +150,7 @@ gsap.utils.toArray('.content-opacity').forEach((el, index) => {
 		 toggleActions: "play none none reverse",
 	  }
 	})
-	
 	tl
 	.set(el, {transformOrigin: 'center center'})
-	.fromTo(el, {opacity: 0}, {opacity: 1, duration: .8, immediateRender: false})
+	.fromTo(el, {opacity: 0}, {opacity: 1, duration: 1, immediateRender: false})
  })
